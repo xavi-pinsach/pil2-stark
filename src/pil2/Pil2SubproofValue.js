@@ -3,7 +3,7 @@ const { AGGTYPES } = require('./Pil2Constants');
 
 class PIL2SubproofValue {
     constructor(aggType) {
-        if(aggType !== AGGTYPES.SUM && aggType !== AGGTYPES.PRODUCT)
+        if(!Object.values(AGGTYPES).includes(aggType))
             throw new Error('Invalid aggregation type');
 
         this.aggType = aggType;
