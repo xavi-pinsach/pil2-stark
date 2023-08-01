@@ -1,7 +1,7 @@
 class PIL2OperandConstant {
     constructor(expression) {
         this.operand = "constant";
-        this.value = expression;
+        this.value = expression.value;
     }
 
     toJson() {
@@ -104,7 +104,7 @@ class PIL2OperandExpression {
 }
 
 class PIL2Operand {
-    constructor(operand) {
+    constructor(expression) {
         const operandMap = {
             constant: PIL2OperandConstant,
             challenge: PIL2OperandChallenge,
@@ -117,15 +117,15 @@ class PIL2Operand {
             expression: PIL2OperandExpression,
         };
           
-        if (!operationMap.hasOwnProperty(expression.operation))
-            throw new Error("Unknown operation: " + expression.operation);
+        if (!operandMap.hasOwnProperty(expression.operand))
+            throw new Error("Unknown operand: " + expression.operand);
 
         this.operand = new operandMap[expression.operand](expression);
 
     }
 
     toJson() {
-        return this.operand;
+        return this.operand.toJson();
     }
 }
 

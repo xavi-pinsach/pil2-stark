@@ -31,11 +31,11 @@ describe("PIL AIR JSON basic test", function () {
                     aggregated: false,
                     subProofValues: [1, 2, 1, 2],
                     airs: [ {name: "test", numRows: 33, periodicCols: [1,1,2], fixedCols: [99, 99], stageWidths: [75,75,75],
-                        expressions: [{operation: 'add', lhs: 131, rhs: 242}],
+                        expressions: [{operation: 'add', lhs: {operand: "constant", value: 131}, rhs: {operand: "constant", value: 242}}],
                         constraints: []
                     },
                     {name: "test1", numRows: 44, periodicCols: [22,3], fixedCols: [100, 100], stageWidths: [175,175,175],
-                    expressions: [{operation: 'neg', value: 531}],
+                    expressions: [{operation: 'neg', value: {operand: "constant", value: 5551}}],
                     constraints: []
                 } ]
                 }
