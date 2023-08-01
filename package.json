@@ -1,0 +1,31 @@
+{
+  "name": "pil2-stark",
+  "version": "0.0.1",
+  "description": "Build a STARK from a PIL2 definition",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xavi-pinsach/pil2-stark.git"
+  },
+  "keywords": [
+    "stark",
+    "pil2",
+    "zero",
+    "knwoledge"
+  ],
+  "author": "Polygon zkEVM",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/xavi-pinsach/pil2-stark/issues"
+  },
+  "homepage": "https://github.com/xavi-pinsach/pil2-stark#readme",
+  "dependencies": {
+    "ffjavascript": "^0.2.59",
+    "logplease": "^1.2.15",
+    "mocha": "^10.2.0",
+    "prettier": "^3.0.0"
+  }
+}
