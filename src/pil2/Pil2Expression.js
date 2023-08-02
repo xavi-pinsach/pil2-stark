@@ -1,4 +1,4 @@
-const PIL2Operand = require("./Pil2Operand");
+const PIL2Operand = require("./Pil2Operand.js");
 
 class PIL2ExpressionAdd {
     constructor(expression) {

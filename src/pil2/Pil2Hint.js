@@ -1,5 +1,5 @@
 class PIL2Hint {
-    constructor(id) {
+    constructor(id, name, ) {
         this.id = id;
     }
 

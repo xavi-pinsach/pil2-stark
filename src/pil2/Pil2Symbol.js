@@ -1,4 +1,14 @@
-const { SYMBOLTYPES } = require('./Pil2Constants');
+const SYMBOLTYPES = {
+    IM_COL: 0,
+    FIXED_COL: 1,
+    PERIODIC_COL: 2,
+    WITNESS_COL: 3,
+    PROOF_VALUE: 4,
+    SUBPROOF_VALUE: 5,
+    PUBLIC_VALUE: 6,
+    PUBLIC_TABLE: 7,
+    CHALLENGE: 8,
+};
 
 class PIL2Symbol {
     constructor(id, name, type, dim, lengths, subproofId, airId, debugLine) {

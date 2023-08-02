@@ -1,4 +1,4 @@
-const { AGGTYPES } = require("./Pil2Constants");
+const { AGGTYPES } = require("./Pil2Constants.js");
 
 class PIL2PublicTable {
     constructor(id, numCols, maxRows, aggType, rowExpressionIdx) {
@@ -10,9 +10,7 @@ class PIL2PublicTable {
             throw new Error("Invalid aggregation type");
         this.aggType = aggType;
 
-        this.rowExpressionIdx = new PIL2GlobalOperandExpression(
-            rowExpressionIdx
-        );
+        this.rowExpressionIdx = new PIL2GlobalOperandExpression(rowExpressionIdx);
     }
 
     toJson() {

@@ -1,5 +1,5 @@
 
-const { AGGTYPES } = require('./Pil2Constants');
+const { AGGTYPES } = require('./Pil2Constants.js');
 
 class PIL2SubproofValue {
     constructor(aggType) {

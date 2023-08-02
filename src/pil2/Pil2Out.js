@@ -69,7 +69,12 @@ class PIL2Out {
     addSubproof(subproof) {
         const subproofId = this.numSubproofs;
 
-        const pil2Subproof = new PIL2Subproof(subproofId, subproof.aggregated, subproof.subProofValues, subproof.airs);
+        const pil2Subproof = new PIL2Subproof(
+            subproofId,
+            subproof.aggregated,
+            subproof.subProofValues,
+            subproof.airs
+        );
 
         this.subproofs.push(pil2Subproof);
     }
@@ -115,8 +120,10 @@ class PIL2Out {
             if (subproof == undefined)
                 throw new Error(`Subproof ${symbol.subproofId} not found`);
 
-            if (subproof.airs[symbol.airId] == undefined) 
-                throw new Error(`AIR ${symbol.airId} not found in subproof ${symbol.subproofId}`);
+            if (subproof.airs[symbol.airId] == undefined)
+                throw new Error(
+                    `AIR ${symbol.airId} not found in subproof ${symbol.subproofId}`
+                );
         }
 
         const pil2Symbol = new PIL2Symbol(
@@ -134,7 +141,8 @@ class PIL2Out {
     }
 
     addPublicTables(publicTables) {
-        if (this.publicTables.length > 0) throw new Error("Public tables already added");
+        if (this.publicTables.length > 0)
+            throw new Error("Public tables already added");
 
         for (let i = 0; i < publicTables.length; i++) {
             this.addPublicTable(publicTables[i]);
@@ -149,7 +157,8 @@ class PIL2Out {
     }
 
     addExpressions(expressions) {
-        if (this.expressions.length > 0) throw new Error("Expressions already added");
+        if (this.expressions.length > 0)
+            throw new Error("Expressions already added");
 
         for (let i = 0; i < expressions.length; i++) {
             this.addExpression(expressions[i]);
@@ -158,7 +167,7 @@ class PIL2Out {
 
     addExpression(expression) {
         const expressionId = this.numExpressions;
-        const pil2Expression = new PIL2Expression(expressionId, expression);
+        const pil2Expression = new PIL2GlobalExpression(expressionId, expression);
 
         this.expressions.push(pil2Expression);
     }

@@ -1,4 +1,5 @@
-const { PIL2Expression } = require("./Pil2Expression");
+const PIL2Constraint = require("./Pil2Constraint.js");
+const { PIL2Expression } = require("./Pil2Expression.js");
 
 class PIL2BasicAir {
     constructor(
@@ -25,7 +26,7 @@ class PIL2BasicAir {
         if (fixedCols !== undefined) this.addFixedCols(fixedCols);
         if (stageWidths !== undefined) this.addStageWidths(stageWidths);
         if (expressions !== undefined) this.addExpressions(expressions);
-        //if (constraints !== undefined) this.addConstraints(constraints);
+        if (constraints !== undefined) this.addConstraints(constraints);
     }
 
     addPeriodicCols(periodicCols) {
@@ -69,6 +70,22 @@ class PIL2BasicAir {
         const pil2Expression = new PIL2Expression(expressionId, expression);
 
         this.expressions.push(pil2Expression);
+    }
+
+    addConstraints(constraints) {
+        if (this.constraints.length > 0)
+            throw new Error("Constraints already added");
+
+        for (let i = 0; i < constraints.length; i++) {
+            this.addConstraint(constraints[i]);
+        }
+    }
+
+    addConstraint(constraint) {
+        const constraintId = this.constraints.length;
+        const pil2Constraint = new PIL2Constraint(constraintId, constraint);
+
+        this.constraints.push(pil2Constraint);
     }
 
     toJson() {

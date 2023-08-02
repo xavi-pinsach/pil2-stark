@@ -1,4 +1,4 @@
-const PIL2AIR = require("./pil2/Pil2Out.js");
+const PIL2Out = require("./pil2/Pil2Out.js");
 const { getCurveFromR } = require("ffjavascript");
 
 async function getAIRFromJSON(json) {
@@ -21,7 +21,7 @@ async function getAIRFromJSON(json) {
         }
     }
 
-    const pil2AIR = new PIL2AIR();
+    const pil2AIR = new PIL2Out();
 
     pil2AIR.name = json.name;
 
