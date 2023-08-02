@@ -133,7 +133,20 @@ class PIL2Out {
         this.symbols.push(pil2Symbol);
     }
 
-    addPublicTables(publicTables) {}
+    addPublicTables(publicTables) {
+        if (this.publicTables.length > 0) throw new Error("Public tables already added");
+
+        for (let i = 0; i < publicTables.length; i++) {
+            this.addPublicTable(publicTables[i]);
+        }
+    }
+
+    addPublicTable(publicTable) {
+        const publicTableId = this.numPublicTables;
+        const pil2PublicTable = new PIL2PublicTable(publicTableId, publicTable);
+
+        this.publicTables.push(pil2PublicTable);
+    }
 
     addExpressions(expressions) {
         if (this.expressions.length > 0) throw new Error("Expressions already added");
@@ -141,7 +154,6 @@ class PIL2Out {
         for (let i = 0; i < expressions.length; i++) {
             this.addExpression(expressions[i]);
         }
-
     }
 
     addExpression(expression) {
